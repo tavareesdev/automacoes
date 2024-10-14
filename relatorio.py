@@ -3,12 +3,12 @@ from datetime import datetime
 
 # Lê a planilha existente para preservar a situação dos alunos
 try:
-    df_existente = pd.read_excel('C:\\Users\\gtava\\OneDrive\\Documentos\\Relatórios\\Relatório Coordenação Junho.xlsx')
+    df_existente = pd.read_excel('C:\\Users\\Ped\\Documents\\Relatórios\\Relatório Coordenação Setembro.xlsx')
 except FileNotFoundError:
     df_existente = pd.DataFrame(columns=['Aluno', 'Data do Último Acesso', 'Data de Primeiro Acesso', 'Dias desde primeiro acesso', 'Dias desde o último acesso', 'Situação'])
 
 # Lê a nova planilha de agendamentos
-df = pd.read_excel('C:\\Users\\gtava\\Downloads\\2251-AgendamentosAluno-2c3714067b7241b7bdb2040f5a963256.xlsx', header=1, names=['Data', 'Hora Início', 'Hora Fim', 'Aluno', 'Telefone', 'Situacao', 'Agendamento'])
+df = pd.read_excel('C:\\Users\\Ped\\Downloads\\2251-AgendamentosAluno-42590dd034cd403da4fe8ac0dd626b14.xlsx', header=1, names=['Data', 'Hora Início', 'Hora Fim', 'Aluno', 'Telefone', 'Situacao', 'Agendamento'])
 
 # Converte a coluna de datas para o formato datetime
 df['Data'] = pd.to_datetime(df['Data'], format='%d/%m/%Y', errors='coerce')
@@ -61,4 +61,4 @@ datas_e_situacao = pd.concat([datas_e_situacao, alunos_especiais], ignore_index=
 datas_e_situacao = datas_e_situacao[['Aluno', 'Data do Último Acesso', 'Data de Primeiro Acesso', 'Dias desde primeiro acesso', 'Meses desde primeiro acesso', 'Dias desde o último acesso', 'Situação']]
 
 # Salva o resultado no arquivo Excel
-datas_e_situacao.to_excel('C:\\Users\\gtava\\OneDrive\\Documentos\\Relatórios\\Relatório Coordenação TESTE.xlsx', index=False)
+datas_e_situacao.to_excel('C:\\Users\\Ped\\Documents\\Relatórios\\Relatório Coordenação Setembro - Copia.xlsx', index=False)

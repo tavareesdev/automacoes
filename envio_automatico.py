@@ -5,7 +5,7 @@ import time
 import urllib
 import pandas as pd
 
-contatos_df = pd.read_excel("mensagens_terca.xlsx")
+contatos_df = pd.read_excel("mensagens_sexta.xlsx")
 print(contatos_df)
 
 # Caminho para o Microsoft Edge WebDriver
@@ -34,12 +34,15 @@ for i, mensagem in enumerate(contatos_df['Mensagem']):
     texto = urllib.parse.quote(f"Bom diaa {nome}, tudo bem?\n\n{mensagem}")
     link = f"https://web.whatsapp.com/send?phone={numero}&text={texto}"
     navegador.get(link)
-    time.sleep(10)
+    time.sleep(15)
     try:
         elemento = navegador.find_elements(By.XPATH, '//*[@id="app"]/div/span[2]/div/span/div/div/div/div/div/div[2]/div/button')
         elemento[0].click()
     except:
-        while len(navegador.find_elements(By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p/span')) < 1:
-            time.sleep(1)
-        navegador.find_element(By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p/span').send_keys(Keys.ENTER)
+        while len(navegador.find_elements(By.XPATH, '//*[@id="main"]/footer/div[1]/div/span/div/div[2]/div[2]/button/span')) < 1:
+            time.sleep(2)
+        elemento = navegador.find_element(By.XPATH, '//*[@id="main"]/footer/div[1]/div/span/div/div[2]/div[2]/button/span')
+        elemento[0].click()
     time.sleep(5)
+
+navegador.quit()

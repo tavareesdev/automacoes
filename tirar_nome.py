@@ -2,7 +2,18 @@ import pandas as pd
 
 # Lista de nomes dos alunos a serem procurados
 nomes_alunos = [
-    "Vitória Batista de Souza"
+    "Rafael Correia Pinho",
+    "gabriela santos rocha",
+    "noemi luiza",
+    "HENRIQUE OLIVEIRA DE MELO",
+    "EVELYN DE SOUZA SECUNDO",
+    "vinicus mota alencar",
+    "Guilherme Lopes",
+    "Edilberto filho Lopes",
+    "yasmin katheelen",
+    "kaua lima de jesu",
+    "Gustavo Melo de Araújo",
+    "JEFFERSON SANTOS DE CARVALHO"
 ]
 
 # Lista de arquivos Excel para verificar

@@ -26,7 +26,7 @@ cont = 100
 for i, mensagem in enumerate(contatos_df['Número']):
     if cont < 6:
         texto = contatos_df.loc[i, "Número"]
-        editable_div.send_keys(texto)
+        editable_div.send_keys('+55 11 94300-7644')
 
         time.sleep(2)
 
@@ -69,20 +69,20 @@ for i, mensagem in enumerate(contatos_df['Número']):
         time.sleep(30)
 
         try:                                                    
-            elemento_hover = navegador.find_element(By.CSS_SELECTOR, 'div.x9f619.x1d8l2j3.xm7lytj.x150jy0e.xs9asl8.x16hj40l > div._akbu > span._ao3e.selectable-text.copyable-text')
+            elemento_hover = navegador.find_element(By.CSS_SELECTOR, 'div._amkz.message-out.focusable-list-item._amjy._amjz._amjw')
             
             actions = ActionChains(navegador)
 
             actions.move_to_element(elemento_hover).perform()
         except:
             try:
-                elemento_hover = navegador.find_elements(By.XPATH, '//*[@id="main"]/div[3]/div/div[2]/div[3]/div[7]/div/div/div[1]/div[1]/div[1]/div[2]')
+                elemento_hover = navegador.find_elements(By.XPATH, 'div._amkz.message-out.focusable-list-item._amjy._amjz._amjw')
 
                 actions = ActionChains(navegador)
 
                 actions.move_to_element(elemento_hover[0]).perform()
             except:
-                elemento_hover = navegador.find_element(By.CSS_SELECTOR, 'button[aria-label="Reproduzir mensagem de voz"]')
+                elemento_hover = navegador.find_element(By.CSS_SELECTOR, 'div._amkz.message-out.focusable-list-item._amjy._amjz._amjw')
 
                 actions = ActionChains(navegador)
 
@@ -97,6 +97,22 @@ for i, mensagem in enumerate(contatos_df['Número']):
 
         elemento = navegador.find_elements(By.XPATH, '//*[@id="app"]/div/span[5]/div/ul/div/li[4]/div')
         elemento[0].click()
+
+        time.sleep(2)
+
+        elemento = navegador.find_element(By.CSS_SELECTOR, 'div.x1n2onr6.x1rg5ohu.x1xp8n7a.xmix8c7.xxymvpz.x1ypdohk.xm3z3ea.x1x8b98j.x131883w.x16mih1h.x17dzmu4')
+        elemento.click()
+
+        time.sleep(2)
+
+        elemento = navegador.find_elements(By.XPATH, '//*[@id="main"]/div[3]/div/div[2]/div[3]/div[19]/div/div/span/div')
+        elemento[0].click()
+
+        time.sleep(2)
+
+        elemento = navegador.find_elements(By.XPATH, '//*[@id="main"]/div[3]/div/div[2]/div[3]/div[24]/div/div/span/div')
+        elemento[0].click()
+
 
         time.sleep(2)
 

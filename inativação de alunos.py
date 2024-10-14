@@ -21,11 +21,11 @@ def trim_values(value):
         return re.sub('  +', ' ', value.strip())
     return value
 
-arquivo = 'C:\\Users\\User\\Documents\\Relatórios\\Relatório Coordenação Maio - Copia.xlsx'
+arquivo = 'C:\\Users\\Ped\\Documents\\Relatórios\\Relatório Coordenação Julho.xlsx'
 
 df = pd.read_excel(arquivo)
 
-alunos_faltantes = df[(df.iloc[:, 6] != 'ATIVO')].iloc[:, 0].drop_duplicates().tolist()
+alunos_faltantes = df[(df.iloc[:, 6] == 'BLOQUEADO')].iloc[:, 0].drop_duplicates().tolist()
 
 Inativos = {f'var{i+1}': aluno for i, aluno in enumerate(alunos_faltantes)}
 Inativos = {key: trim_values(value) for key, value in Inativos.items()}
